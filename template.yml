@@ -19,17 +19,31 @@ Parameters:
 #       Type: Canary10Percent5Minutes
 
 Resources:
-  GetHelloWorld:
+  Examples1:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: index.get
-      Runtime: nodejs4.3
+      Handler: app/examples.one
+      Runtime: nodejs6.10
       Role:
         Fn::ImportValue:
-          !Join ['-', [!Ref 'ProjectId', !Ref 'AWS::Region', 'LambdaTrustRole']]
+          !Join ['final-project-lambda-role']]
       Events:
         GetEvent:
           Type: Api
           Properties:
-            Path: /
+            Path: /examples/1
+            Method: get
+  Examples2:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: app/examples.findByTwo
+      Runtime: nodejs6.10
+      Role:
+        Fn::ImportValue:
+          !Join ['final-project-lambda-role']]
+      Events:
+        GetEvent:
+          Type: Api
+          Properties:
+            Path: /examples/2
             Method: get

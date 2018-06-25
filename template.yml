@@ -22,6 +22,7 @@ Resources:
   Examples1:
     Type: AWS::Serverless::Function
     Properties:
+      FunctionName: !Join [!rEF 'AWS::ApiGateway::Stage', 'Example1']
       Handler: app/examples.one
       Runtime: nodejs6.10
       Role:

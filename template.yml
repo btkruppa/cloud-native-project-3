@@ -26,7 +26,7 @@ Resources:
       Runtime: nodejs6.10
       Role:
         Fn::ImportValue:
-          'final-project-lambda-role'
+          !Join ['-', [!Ref 'ProjectId', !Ref 'AWS::Region', 'LambdaTrustRole']]
       Events:
         GetEvent:
           Type: Api
@@ -40,7 +40,7 @@ Resources:
       Runtime: nodejs6.10
       Role:
         Fn::ImportValue:
-          'final-project-lambda-role'
+          !Join ['-', [!Ref 'ProjectId', !Ref 'AWS::Region', 'LambdaTrustRole']]
       Events:
         GetEvent:
           Type: Api
